@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Contact — 路 R O J O 上"
+  description="Contact 路 R O J O 上 (rojo.works)."
+  pageTitle="CONTACT"
+>
+  <section class="connect" aria-label="connect">
+    <a class="connect-link" href="mailto:mail@rojo.works">mail@rojo.works</a>
+    <a
+      class="connect-link"
+      href="https://www.instagram.com/rojo.works/"
+      target="_blank"
+      rel="noopener"
+    >Instagram @rojo.works</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .connect {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+  }
+
+  .connect-link {
+    display: inline-block;
+    width: fit-content;
+    transition: opacity 0.15s ease;
+  }
+
+  .connect-link:hover,
+  .connect-link:focus-visible {
+    opacity: 0.6;
+    outline: none;
+  }
+</style>

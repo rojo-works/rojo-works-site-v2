@@ -1,0 +1,258 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = '路 R O J O 上 — rojo.works',
+  description = '路 R O J O 上 (rojo.works) — A practice in Ueda. Articles · Dialog · Small Rental Property.',
+} = Astro.props;
+
+const navItems = [
+  { href: '#articles', label: 'ARTICLES' },
+  { href: '#dialogs', label: 'DIALOGS' },
+  { href: '#rentals', label: 'RENTALS' },
+  { href: '#contact', label: 'CONTACT' },
+];
+---
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#283446" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://rojo.works/" />
+    <meta property="og:site_name" content="路 R O J O 上" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link
+      rel="preload"
+      href="/assets/fonts/line-seed-jp-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <a href="#top" class="brand" aria-label="路 R O J O 上 ホーム">
+        <img class="logo" src="/assets/logo.svg" alt="路 R O J O 上" width="40" height="40" />
+        <span class="brand-name">路 R O J O 上</span>
+      </a>
+
+      <nav class="nav" aria-label="主要ナビゲーション">
+        {navItems.map((item) => (
+          <a href={item.href} class="nav-link">{item.label}</a>
+        ))}
+      </nav>
+    </header>
+
+    <main id="top" class="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p>Cookie の使用、アクセス解析、外部トラッキングは行っていません。</p>
+      <p>© 2026 路上</p>
+    </footer>
+
+    <style is:global>
+      @font-face {
+        font-family: 'LINE Seed JP';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/assets/fonts/line-seed-jp-regular.woff2') format('woff2');
+      }
+
+      :root {
+        --bg: #283446;
+        --text: #f0f0f0;
+        --text-sub: #8d99ad;
+        --border: rgba(240, 240, 240, 0.14);
+        --max-width: 880px;
+        --gutter: 28px;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        scroll-behavior: smooth;
+        scroll-padding-top: 88px;
+      }
+
+      body {
+        font-family: 'LINE Seed JP', YuGothic, 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Helvetica Neue', Arial, Meiryo, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        min-height: 100dvh;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      /* ===== ヘッダー（ロゴ＋横並びナビ） ===== */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--bg);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 18px var(--gutter);
+        max-width: var(--max-width);
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-shrink: 0;
+      }
+
+      .logo {
+        width: 40px;
+        height: 40px;
+        display: block;
+      }
+
+      .brand-name {
+        font-size: 12px;
+        letter-spacing: 0.22em;
+      }
+
+      .nav {
+        display: flex;
+        gap: 22px;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .nav-link {
+        color: var(--text-sub);
+        transition: color 0.15s ease;
+      }
+
+      .nav-link:hover,
+      .nav-link:focus-visible {
+        color: var(--text);
+        outline: none;
+      }
+
+      /* ===== メイン ===== */
+      .main {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 56px var(--gutter) 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 96px;
+      }
+
+      /* ===== セクション共通 ===== */
+      .section {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        scroll-margin-top: 88px;
+      }
+
+      .section-heading {
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 0.22em;
+        color: var(--text-sub);
+      }
+
+      .section-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        font-size: 14px;
+        letter-spacing: 0.04em;
+      }
+
+      .section-list li::before {
+        content: '/ ';
+        color: var(--text-sub);
+        margin-right: 4px;
+      }
+
+      .section-list a {
+        transition: opacity 0.15s ease;
+      }
+
+      .section-list a:hover,
+      .section-list a:focus-visible {
+        opacity: 0.6;
+        outline: none;
+      }
+
+      .section-empty {
+        font-size: 13px;
+        color: var(--text-sub);
+        letter-spacing: 0.04em;
+      }
+
+      /* ===== フッター ===== */
+      .site-footer {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 32px var(--gutter) 40px;
+        font-size: 11px;
+        line-height: 1.9;
+        color: var(--text-sub);
+        letter-spacing: 0.02em;
+      }
+
+      .site-footer p + p { margin-top: 4px; }
+
+      /* ===== レスポンシブ ===== */
+      @media (max-width: 600px) {
+        :root { --gutter: 22px; }
+
+        .site-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 14px;
+          padding: 18px var(--gutter);
+        }
+
+        .nav {
+          gap: 18px;
+        }
+
+        .main {
+          padding: 40px var(--gutter) 24px;
+          gap: 72px;
+        }
+
+        .logo { width: 36px; height: 36px; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        * { transition: none !important; }
+      }
+    </style>
+  </body>
+</html>

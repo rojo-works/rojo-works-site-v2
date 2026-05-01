@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout>
+  <section class="intro" aria-label="introduction">
+    <p>A practice in Ueda.</p>
+    <p>Articles · Dialog · Small Rental Property</p>
+  </section>
+
+  <section class="section" id="articles" aria-labelledby="h-articles">
+    <h2 id="h-articles" class="section-heading">ARTICLES</h2>
+    <ul class="section-list">
+      <li><span class="section-empty">Coming soon.</span></li>
+    </ul>
+  </section>
+
+  <section class="section" id="dialogs" aria-labelledby="h-dialogs">
+    <h2 id="h-dialogs" class="section-heading">DIALOGS</h2>
+    <ul class="section-list">
+      <li><span class="section-empty">Coming soon.</span></li>
+    </ul>
+  </section>
+
+  <section class="section" id="rentals" aria-labelledby="h-rentals">
+    <h2 id="h-rentals" class="section-heading">RENTALS</h2>
+    <ul class="section-list">
+      <li><span class="section-empty">Coming soon.</span></li>
+    </ul>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact" class="section-heading">CONTACT</h2>
+    <ul class="section-list">
+      <li><a href="mailto:mail@rojo.works">mail@rojo.works</a></li>
+      <li><a href="https://www.instagram.com/rojo.works/" target="_blank" rel="noopener">Instagram @rojo.works</a></li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .intro {
+    font-size: 14px;
+    line-height: 2;
+    letter-spacing: 0.04em;
+    padding-bottom: 8px;
+  }
+
+  .intro p + p {
+    margin-top: 4px;
+  }
+</style>
