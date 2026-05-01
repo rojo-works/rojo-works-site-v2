@@ -23,7 +23,7 @@ const navItems = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#283446" />
+    <meta name="theme-color" content="#2b2b2b" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
@@ -34,6 +34,13 @@ const navItems = [
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
+    <link
+      rel="preload"
+      href="/assets/fonts/jetbrains-mono-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link
       rel="preload"
       href="/assets/fonts/line-seed-jp-regular.woff2"
@@ -60,12 +67,21 @@ const navItems = [
       <slot />
     </main>
 
-    <footer class="site-footer">
-      <p>Cookie の使用、アクセス解析、外部トラッキングは行っていません。</p>
-      <p>© 2026 路上</p>
-    </footer>
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <p>Cookie の使用、アクセス解析、外部トラッキングは行っていません。</p>
+        <p>© 2026 路上</p>
+      </footer>
+    </div>
 
     <style is:global>
+      @font-face {
+        font-family: 'JetBrains Mono';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/assets/fonts/jetbrains-mono-regular.woff2') format('woff2');
+      }
       @font-face {
         font-family: 'LINE Seed JP';
         font-style: normal;
@@ -75,12 +91,13 @@ const navItems = [
       }
 
       :root {
-        --bg: #283446;
-        --text: #f0f0f0;
-        --text-sub: #8d99ad;
-        --border: rgba(240, 240, 240, 0.14);
+        --bg: #2b2b2b;
+        --text: #f8fbf8;
+        --text-sub: #888;
+        --link: #00a3af;
+        --border: var(--text);
         --max-width: 880px;
-        --gutter: 28px;
+        --gutter: 24px;
       }
 
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -92,16 +109,23 @@ const navItems = [
       }
 
       body {
-        font-family: 'LINE Seed JP', YuGothic, 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'Helvetica Neue', Arial, Meiryo, sans-serif;
+        font-family: 'JetBrains Mono', 'LINE Seed JP', ui-monospace, 'SF Mono', Menlo, Consolas, 'Hiragino Sans', 'Yu Gothic', monospace;
         background: var(--bg);
         color: var(--text);
-        line-height: 1.7;
+        line-height: 1.4;
         min-height: 100dvh;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: 'calt' off, 'liga' off;
       }
 
       a { color: inherit; text-decoration: none; }
+
+      a[href^="mailto:"],
+      a[href^="http"]:not(.brand):not(.nav-link) {
+        color: var(--link);
+      }
 
       /* ===== ヘッダー（ロゴ＋横並びナビ） ===== */
       .site-header {
@@ -161,34 +185,37 @@ const navItems = [
       .main {
         max-width: var(--max-width);
         margin: 0 auto;
-        padding: 56px var(--gutter) 32px;
+        padding: 32px var(--gutter) 24px;
         display: flex;
         flex-direction: column;
-        gap: 96px;
+        gap: 16px;
       }
 
-      /* ===== セクション共通 ===== */
+      /* ===== セクション共通（罫線で囲う） ===== */
       .section {
+        border: 1px solid var(--border);
+        scroll-margin-top: 100px;
         display: flex;
         flex-direction: column;
-        gap: 24px;
-        scroll-margin-top: 88px;
       }
 
       .section-heading {
         font-size: 12px;
         font-weight: 400;
         letter-spacing: 0.22em;
-        color: var(--text-sub);
+        color: var(--text);
+        padding: 10px 16px;
+        border-bottom: 1px solid var(--border);
       }
 
       .section-list {
         list-style: none;
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
         font-size: 14px;
         letter-spacing: 0.04em;
+        padding: 14px 16px;
       }
 
       .section-list li::before {
@@ -214,13 +241,18 @@ const navItems = [
       }
 
       /* ===== フッター ===== */
-      .site-footer {
+      .site-footer-wrap {
         max-width: var(--max-width);
         margin: 0 auto;
-        padding: 32px var(--gutter) 40px;
+        padding: 0 var(--gutter) 32px;
+      }
+
+      .site-footer {
+        border: 1px solid var(--border);
+        padding: 12px 16px;
         font-size: 11px;
-        line-height: 1.9;
-        color: var(--text-sub);
+        line-height: 1.5;
+        color: var(--text);
         letter-spacing: 0.02em;
       }
 

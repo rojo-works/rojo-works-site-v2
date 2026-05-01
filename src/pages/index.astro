@@ -3,8 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout>
   <section class="intro" aria-label="introduction">
-    <p>A practice in Ueda.</p>
-    <p>Articles · Dialog · Small Rental Property</p>
+    <p>A practice in Ueda. Articles · Dialog · Small Rental Property</p>
   </section>
 
   <section class="section" id="articles" aria-labelledby="h-articles">
@@ -39,13 +38,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <style>
   .intro {
+    border: 1px solid var(--text);
+    padding: 14px 16px;
     font-size: 14px;
-    line-height: 2;
+    line-height: 1.5;
     letter-spacing: 0.04em;
-    padding-bottom: 8px;
-  }
-
-  .intro p + p {
-    margin-top: 4px;
   }
 </style>
