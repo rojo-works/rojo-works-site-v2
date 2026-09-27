@@ -2,14 +2,15 @@
    参考画像に沿った見た目の仕上げは、Codex の作業（設計書 8章の段階1）。 */
 
 .article-body {
-  padding: 16px;
+  max-width: 760px;
+  padding: clamp(26px, 4vw, 54px) 0 8px;
   font-family: var(--font-content);
-  font-size: 14px;
-  line-height: 1.8;
-  letter-spacing: 0.02em;
+  font-size: clamp(15px, 1.45vw, 17px);
+  line-height: 2;
+  letter-spacing: 0.035em;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 
 /* 記事の題名（書き手が自由に書く文字なので、本文と同じフォントにする） */
@@ -18,9 +19,13 @@
 }
 
 .article-body :is(h2, h3) {
-  font-size: 13px;
-  letter-spacing: 0.1em;
-  margin-top: 8px;
+  font-family: var(--font-content);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  margin-top: 22px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
 }
 
 .article-body ul,
@@ -28,5 +33,18 @@
   padding-left: 1.4em;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 8px;
+}
+
+.article-body a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.article-body blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
+  color: var(--text-sub);
 }

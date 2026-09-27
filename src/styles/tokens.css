@@ -16,13 +16,16 @@
 }
 
 :root {
-  --bg: #2b2b2b;
-  --text: #f8fbf8;
-  --text-sub: #888;
-  --link: #00a3af;
-  --border: var(--text);
-  --max-width: 880px;
-  --gutter: 24px;
+  --bg: #f4f3ed;
+  --surface: #fbfaf6;
+  --text: #20211e;
+  --text-sub: #777971;
+  --link: #077f78;
+  --accent: #d9ff00;
+  --border: #20211e;
+  --rule: #d4d5ce;
+  --max-width: 1120px;
+  --gutter: 32px;
 
   /* 固定の見出し・ナビ・フッターなど、文字が決まっている部品。
      JetBrains Mono と LINE Seed JP のサブセットを使う。 */
@@ -35,5 +38,5 @@
 }
 
 @media (max-width: 600px) {
-  :root { --gutter: 22px; }
+  :root { --gutter: 20px; }
 }

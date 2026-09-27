@@ -3,42 +3,45 @@
 .main {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 32px var(--gutter) 24px;
+  padding: 72px var(--gutter) 88px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 72px;
 }
 
 .section {
-  border: 1px solid var(--border);
+  border-top: 1px solid var(--border);
   scroll-margin-top: 100px;
   display: flex;
   flex-direction: column;
 }
 
 .section-heading {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.22em;
   color: var(--text);
-  padding: 10px 16px;
-  border-bottom: 1px solid var(--border);
+  padding: 12px 0 11px;
+  border-bottom: 1px solid var(--rule);
 }
 
 .section-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  font-size: 14px;
+  gap: 8px;
+  font-size: 13px;
   letter-spacing: 0.04em;
-  padding: 14px 16px;
+  padding: 18px 0 0;
 }
 
 .section-list li::before {
-  content: '/ ';
+  content: '↗';
   color: var(--text-sub);
-  margin-right: 4px;
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 11px;
+  transform: translateY(-1px);
 }
 
 .section-list a {
@@ -47,8 +50,7 @@
 
 .section-list a:hover,
 .section-list a:focus-visible {
-  opacity: 0.6;
-  outline: none;
+  opacity: 0.56;
 }
 
 .section-empty {
@@ -59,12 +61,25 @@
 
 /* WORKS の mono Catalog のような、1つ上の項目に属する子リンク */
 .section-list-sub {
-  padding-left: 16px;
+  padding-left: 22px;
 }
+
+/* 一覧ページではカードがリストの一行として収まる。 */
+.section-list > .entry-card::before { content: none; }
+
+/* トップの各区画は、同じ構造のまま密度だけを変えて見せる。 */
+#works .section-list,
+#contact .section-list { max-width: 600px; }
+
+#works .section-list { padding-bottom: 4px; }
+
+#contact { padding-bottom: 20px; }
 
 @media (max-width: 600px) {
   .main {
-    padding: 40px var(--gutter) 24px;
-    gap: 72px;
+    padding: 48px var(--gutter) 64px;
+    gap: 56px;
   }
+
+  .section-heading { padding-top: 10px; }
 }
