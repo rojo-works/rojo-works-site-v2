@@ -23,6 +23,15 @@
   --border: var(--text);
   --max-width: 880px;
   --gutter: 24px;
+
+  /* 固定の見出し・ナビ・フッターなど、文字が決まっている部品。
+     JetBrains Mono と LINE Seed JP のサブセットを使う。 */
+  --font-ui: 'JetBrains Mono', 'LINE Seed JP', ui-monospace, 'SF Mono', Menlo, Consolas, 'Hiragino Sans', 'Yu Gothic', monospace;
+
+  /* 記事の本文・題名など、書き手が自由に書く文字。
+     サブセットに無い文字で崩れるため、OSのフォントをそのまま使う
+     （12章6の決定、2026-09-26）。 */
+  --font-content: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Yu Gothic', 'Segoe UI', system-ui, sans-serif;
 }
 
 @media (max-width: 600px) {

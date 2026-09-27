@@ -6,6 +6,9 @@ dist/
 # dependencies
 node_modules/
 
+# wrangler pages dev のローカルキャッシュ
+.wrangler/
+
 # logs
 npm-debug.log*
 yarn-debug.log*

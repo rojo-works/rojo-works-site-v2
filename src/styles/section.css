@@ -57,6 +57,11 @@
   letter-spacing: 0.04em;
 }
 
+/* WORKS の mono Catalog のような、1つ上の項目に属する子リンク */
+.section-list-sub {
+  padding-left: 16px;
+}
+
 @media (max-width: 600px) {
   .main {
     padding: 40px var(--gutter) 24px;

@@ -26,7 +26,7 @@ const { Content } = await render(entry);
 ---
 <BaseLayout title={`${entry.data.title} — 路 R O J O 上`} description={entry.data.summary}>
   <article class="section article-detail" aria-labelledby="h-detail">
-    <h1 id="h-detail" class="section-heading">{entry.data.title}</h1>
+    <h1 id="h-detail" class="section-heading entry-title">{entry.data.title}</h1>
     <div class="article-body">
       <Content />
     </div>

@@ -3,12 +3,18 @@
 
 .article-body {
   padding: 16px;
+  font-family: var(--font-content);
   font-size: 14px;
   line-height: 1.8;
   letter-spacing: 0.02em;
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+/* 記事の題名（書き手が自由に書く文字なので、本文と同じフォントにする） */
+.entry-title {
+  font-family: var(--font-content);
 }
 
 .article-body :is(h2, h3) {
