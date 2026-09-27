@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">抽象化した上田の風景</title>
+  <desc id="desc">山並みと道、建物の輪郭を重ねた淡いグラフィック</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dbe4d5"/>
+      <stop offset=".5" stop-color="#b9cec5"/>
+      <stop offset="1" stop-color="#779b91"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#d7d4bb"/>
+      <stop offset="1" stop-color="#9ca88d"/>
+    </linearGradient>
+    <pattern id="grain" width="42" height="42" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="8" r="1" fill="#fff" opacity=".22"/>
+      <circle cx="33" cy="18" r=".8" fill="#24382f" opacity=".15"/>
+      <path d="M18 33h1" stroke="#fff" opacity=".2"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="760" fill="url(#sky)"/>
+  <path d="M0 327 125 267l116 31 139-111 145 89 159-141 188 136 144-99 120 80 153-126 191 151v218H0Z" fill="#7b9f92" opacity=".66"/>
+  <path d="M0 380 186 294l144 73 164-121 143 92 175-145 162 127 155-84 142 71 190-113 179 131v195H0Z" fill="#476f69" opacity=".52"/>
+  <path d="M0 438 200 381l131 33 172-76 141 79 188-46 198 48 144-66 175 77 151-49 156 43v336H0Z" fill="url(#ground)"/>
+  <path d="M704 760 826 439h105l186 321Z" fill="#eaebdd" opacity=".82"/>
+  <path d="M770 760 865 439h31l142 321" fill="none" stroke="#3f5650" stroke-width="5" opacity=".75"/>
+  <path d="m868 467-4 288m62-288 36 287" stroke="#3f5650" stroke-width="2" opacity=".52"/>
+  <g fill="#e8ebdd" opacity=".85">
+    <path d="M118 432h139v174H118zM274 391h93v215h-93zM1198 375h128v225h-128zM1345 420h96v180h-96z"/>
+  </g>
+  <g fill="none" stroke="#314f4b" stroke-width="4" opacity=".72">
+    <path d="M118 432h139v174H118zM274 391h93v215h-93zM1198 375h128v225h-128zM1345 420h96v180h-96z"/>
+    <path d="M151 463h74m-74 38h74m-74 38h74m108-107h47m-47 42h47m-47 42h47m901-109h84m-84 45h84m-84 45h84m124-42h57m-57 45h57"/>
+  </g>
+  <path d="M0 0h1600v760H0z" fill="url(#grain)"/>
+</svg>
