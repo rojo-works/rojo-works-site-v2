@@ -1,0 +1,26 @@
+/* 記事本文の見た目。いまは最低限の書式だけを置いた土台で、
+   参考画像に沿った見た目の仕上げは、Codex の作業（設計書 8章の段階1）。 */
+
+.article-body {
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.article-body :is(h2, h3) {
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+}
+
+.article-body ul,
+.article-body ol {
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}

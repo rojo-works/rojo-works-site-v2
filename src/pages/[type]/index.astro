@@ -1,0 +1,31 @@
+---
+// 記事3種類（articles / dialogs / rentals）の一覧ページ。
+// 種類ごとにフォルダを分けず、1つの動的ルートで共通に扱う。
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CONTENT_TYPES, CONTENT_TYPE_LABELS, type ContentType } from '../../lib/content-types';
+
+export function getStaticPaths() {
+  return CONTENT_TYPES.map((type) => ({ params: { type } }));
+}
+
+const { type } = Astro.params as { type: ContentType };
+const heading = CONTENT_TYPE_LABELS[type];
+const entries = await getCollection(type);
+// 並び順は、まだ決めていない（コレクションから返る並びのまま）。
+---
+<BaseLayout title={`${heading} — 路 R O J O 上`} description={`${heading} by 路 R O J O 上 (rojo.works).`}>
+  <section class="section" aria-labelledby="h-list">
+    <h1 id="h-list" class="section-heading">{heading}</h1>
+    <ul class="section-list">
+      {entries.length === 0 && (
+        <li><span class="section-empty">Coming soon.</span></li>
+      )}
+      {entries.map((entry) => (
+        <li>
+          <a href={`/${type}/${entry.id}/`}>{entry.data.title}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</BaseLayout>

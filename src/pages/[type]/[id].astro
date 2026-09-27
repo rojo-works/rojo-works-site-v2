@@ -1,0 +1,34 @@
+---
+// 記事3種類（articles / dialogs / rentals）の詳細ページ。
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/article.css';
+import { CONTENT_TYPES, type ContentType } from '../../lib/content-types';
+
+export async function getStaticPaths() {
+  const paths = [];
+  for (const type of CONTENT_TYPES) {
+    const entries = await getCollection(type);
+    for (const entry of entries) {
+      paths.push({ params: { type, id: entry.id }, props: { entry } });
+    }
+  }
+  return paths;
+}
+
+interface Props {
+  entry: CollectionEntry<ContentType>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<BaseLayout title={`${entry.data.title} — 路 R O J O 上`} description={entry.data.summary}>
+  <article class="section article-detail" aria-labelledby="h-detail">
+    <h1 id="h-detail" class="section-heading">{entry.data.title}</h1>
+    <div class="article-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
