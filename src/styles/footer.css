@@ -1,0 +1,18 @@
+/* フッター */
+
+.site-footer-wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 32px;
+}
+
+.site-footer {
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.site-footer p + p { margin-top: 4px; }

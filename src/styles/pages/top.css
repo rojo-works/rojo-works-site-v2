@@ -1,0 +1,9 @@
+/* トップページ（index.astro）専用: 冒頭の紹介文 */
+
+.intro {
+  border: 1px solid var(--text);
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}

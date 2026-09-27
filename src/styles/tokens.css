@@ -1,0 +1,30 @@
+/* デザイントークン: フォント定義と、サイト全体で使う CSS 変数 */
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/jetbrains-mono-regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'LINE Seed JP';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/line-seed-jp-regular.woff2') format('woff2');
+}
+
+:root {
+  --bg: #2b2b2b;
+  --text: #f8fbf8;
+  --text-sub: #888;
+  --link: #00a3af;
+  --border: var(--text);
+  --max-width: 880px;
+  --gutter: 24px;
+}
+
+@media (max-width: 600px) {
+  :root { --gutter: 22px; }
+}

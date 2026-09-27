@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/pages/top.css';
 ---
 <BaseLayout>
   <section class="intro" aria-label="introduction">
@@ -35,13 +36,3 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </ul>
   </section>
 </BaseLayout>
-
-<style>
-  .intro {
-    border: 1px solid var(--text);
-    padding: 14px 16px;
-    font-size: 14px;
-    line-height: 1.5;
-    letter-spacing: 0.04em;
-  }
-</style>

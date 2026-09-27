@@ -1,0 +1,65 @@
+/* メインと、罫線で囲うセクション共通部品 */
+
+.main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 32px var(--gutter) 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section {
+  border: 1px solid var(--border);
+  scroll-margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-heading {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--text);
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  padding: 14px 16px;
+}
+
+.section-list li::before {
+  content: '/ ';
+  color: var(--text-sub);
+  margin-right: 4px;
+}
+
+.section-list a {
+  transition: opacity 0.15s ease;
+}
+
+.section-list a:hover,
+.section-list a:focus-visible {
+  opacity: 0.6;
+  outline: none;
+}
+
+.section-empty {
+  font-size: 13px;
+  color: var(--text-sub);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 600px) {
+  .main {
+    padding: 40px var(--gutter) 24px;
+    gap: 72px;
+  }
+}
