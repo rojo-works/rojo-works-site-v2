@@ -1,0 +1,20 @@
+---
+// 一覧ページの1件分（記事カード）。題名・日付・要約を見せる。
+// 見た目の仕上げは、Codex の作業（src/styles/entry-card.css）。
+interface Props {
+  href: string;
+  title: string;
+  date: Date;
+  summary: string;
+}
+
+const { href, title, date, summary } = Astro.props;
+const dateLabel = date.toISOString().slice(0, 10);
+---
+<li class="entry-card">
+  <a href={href} class="entry-card-link">
+    <span class="entry-card-title">{title}</span>
+    <span class="entry-card-date">{dateLabel}</span>
+    <span class="entry-card-summary">{summary}</span>
+  </a>
+</li>

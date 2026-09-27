@@ -1,0 +1,22 @@
+---
+// サイト共通のヘッダー（ロゴ＋横並びナビ）。
+// BaseLayout.astro から、内容を変えずに切り出した。
+const navItems = [
+  { href: '#articles', label: 'ARTICLES' },
+  { href: '#dialogs', label: 'DIALOGS' },
+  { href: '#rentals', label: 'RENTALS' },
+  { href: '#contact', label: 'CONTACT' },
+];
+---
+<header class="site-header">
+  <a href="#top" class="brand" aria-label="路 R O J O 上 ホーム">
+    <img class="logo" src="/assets/logo.svg" alt="路 R O J O 上" width="40" height="40" />
+    <span class="brand-name">路 R O J O 上</span>
+  </a>
+
+  <nav class="nav" aria-label="主要ナビゲーション">
+    {navItems.map((item) => (
+      <a href={item.href} class="nav-link">{item.label}</a>
+    ))}
+  </nav>
+</header>

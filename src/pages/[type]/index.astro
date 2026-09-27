@@ -3,6 +3,8 @@
 // 種類ごとにフォルダを分けず、1つの動的ルートで共通に扱う。
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import EntryCard from '../../components/EntryCard.astro';
+import '../../styles/entry-card.css';
 import { CONTENT_TYPES, CONTENT_TYPE_LABELS, type ContentType } from '../../lib/content-types';
 
 export function getStaticPaths() {
@@ -22,9 +24,12 @@ const entries = await getCollection(type);
         <li><span class="section-empty">Coming soon.</span></li>
       )}
       {entries.map((entry) => (
-        <li>
-          <a href={`/${type}/${entry.id}/`}>{entry.data.title}</a>
-        </li>
+        <EntryCard
+          href={`/${type}/${entry.id}/`}
+          title={entry.data.title}
+          date={entry.data.date}
+          summary={entry.data.summary}
+        />
       ))}
     </ul>
   </section>

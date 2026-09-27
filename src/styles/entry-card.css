@@ -1,0 +1,18 @@
+/* 一覧ページの記事カード。いまは最低限の書式だけを置いた土台で、
+   参考画像に沿った見た目の仕上げは、Codex の作業。 */
+
+.entry-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.entry-card-date {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.entry-card-summary {
+  font-size: 13px;
+  color: var(--text-sub);
+}

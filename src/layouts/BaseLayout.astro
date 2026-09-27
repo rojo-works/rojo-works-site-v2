@@ -4,6 +4,8 @@ import '../styles/base.css';
 import '../styles/header.css';
 import '../styles/section.css';
 import '../styles/footer.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 export interface Props {
   title?: string;
@@ -14,13 +16,6 @@ const {
   title = '路 R O J O 上 — rojo.works',
   description = '路 R O J O 上 (rojo.works) — A practice in Ueda. Articles · Dialog · Small Rental Property.',
 } = Astro.props;
-
-const navItems = [
-  { href: '#articles', label: 'ARTICLES' },
-  { href: '#dialogs', label: 'DIALOGS' },
-  { href: '#rentals', label: 'RENTALS' },
-  { href: '#contact', label: 'CONTACT' },
-];
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -56,28 +51,12 @@ const navItems = [
     />
   </head>
   <body>
-    <header class="site-header">
-      <a href="#top" class="brand" aria-label="路 R O J O 上 ホーム">
-        <img class="logo" src="/assets/logo.svg" alt="路 R O J O 上" width="40" height="40" />
-        <span class="brand-name">路 R O J O 上</span>
-      </a>
-
-      <nav class="nav" aria-label="主要ナビゲーション">
-        {navItems.map((item) => (
-          <a href={item.href} class="nav-link">{item.label}</a>
-        ))}
-      </nav>
-    </header>
+    <Header />
 
     <main id="top" class="main">
       <slot />
     </main>
 
-    <div class="site-footer-wrap">
-      <footer class="site-footer">
-        <p>Cookie の使用、アクセス解析、外部トラッキングは行っていません。</p>
-        <p>© 2026 路上</p>
-      </footer>
-    </div>
+    <Footer />
   </body>
 </html>
